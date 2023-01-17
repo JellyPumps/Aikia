@@ -4,25 +4,33 @@
             "name": "Duvsiv",
             "price": "400",
             "image": "sunken_hearth.png",
-            "description": "A cozy sunken hearth to create the greatest tea."
+            "description": "A cozy sunken hearth to create the greatest tea.",
+            "status": "in stock",
+            "instruction":"instructions/sunken_hearth.pdf"
         },
         {
             "name": "Judvi",
             "price": "100",
             "image": "sliding_doors.png",
-            "description": "Comfortable doors to install into your luxury home."
+            "description": "Comfortable doors to install into your luxury home.",
+            "status": "in stock",
+            "instruction":"instructions/sliding_doors.pdf"
         },
         {
             "name": "iömpu",
             "price": "150",
             "image": "6_seater_ground_table.png",
-            "description": "A table to enjoy your finest sake."
+            "description": "A table to enjoy your finest sake.",
+            "status": "in stock",
+            "instruction":"instructions/6_seater_ground_table.pdf"
         },
         {
             "name": "pimcö",
             "price": "750",
             "image": "hearth_table_door_set-demo.png",
-            "description": "A demo set to showcase the luxury of traditional furniture."
+            "description": "A demo set to showcase the luxury of traditional furniture.",
+            "status": "in stock",
+            "instruction":"instructions/hearth_table_door_set-demo.pdf"
         }
     ]
 }
