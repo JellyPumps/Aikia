@@ -4,40 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aikia</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
-    integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Aikia Catalogue</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>Aikia Catalogue</h1>
-    <div id="overlay"></div>
-    <div class="container">
-        <div class="catalogue"></div>
-        <form id="order-form" class="order-form" action="mailto:someverybouncyjelly@gmail.com" method="post" enctype="text/plain">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" onKeyup="checkform()" placeholder="required::Minecraft username" required>
-            <label for="discord-username">Discord username:</label>
-            <input type="text" id="discord-username" name="discord-username" onKeyup="checkform()" placeholder="required::Discord username" required>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" onKeyup="checkform()" placeholder="required::Address" required>
-            <label for="items">Items:</label>
-            <input type="text" id="itemsf" name="items" readonly class="no-label" onKeyup="checkform()" placeholder="required::Self populates on item selection" required>
-            <label for="have-it-built">Have it built:</label>
-            <select id="select-button" name="have-it-built" onKeyup="checkform()" required>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <button id="order-button" type="submit" value="Submit" disabled="disabled">Order</button>
-        </form>
-    </div>
-    <footer class="footer">
-        <p id="warning">All prices are in Japanese Yen and subject to change without notice. </p>
-        <p id="warning">Please note that all orders are final and cannot be cancelled or refunded. </p>
-        <p>Note: The cards are bit picky, to select them please tap on the area right above the item name. </p>
-    </footer>    
+    <!-- Header -->
+    <header class="header">
+        <div class="h-container">
+            <div class="logo-container border-hov">
+                <div class="logo">
+                    <img src="favicon-32x32.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="add-container border-hov">
+                <p class="subscript">Hello</p>
+                <div class="icon-address">
+                    <p>Select your address</p>
+                </div>
+            </div>
+            <div class="se-container">
+                <select class="search-options-selector">
+                    <option>All</option>
+                    <option>Seating</option>
+                    <option>Sleeping or Lying</option>
+                    <option>Entertainment</option>
+                    <option>Tables</option>
+                    <option>Storage</option>
+                    <option>Bedroom</option>
+                    <option>Living</option>
+                    <option>Dining</option>
+                    <option>Vanity</option>
+                    <option>Patio</option>
+                    <option>Sets</option>
+                </select>
+                <input type="text" class="search-box">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="cart-container border-hov">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <ul>
+                <li class="border-hov"><a>All</a></li>
+                <li class="border-hov"><a>Seating</a></li>
+                <li class="border-hov"><a>Sleeping or Lying</a></li>
+                <li class="border-hov"><a>Entertainment</a></li>
+                <li class="border-hov"><a>Tables</a></li>
+                <li class="border-hov"><a>Storage</a></li>
+                <li class="border-hov"><a>Bedroom</a></li>
+                <li class="border-hov"><a>Living</a></li>
+                <li class="border-hov"><a>Dining</a></li>
+                <li class="border-hov"><a>Vanity</a></li>
+                <li class="border-hov"><a>Patio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Body -->
+    <section class="featured-items-container body-container">
+        <div class="featured-items-head body-head-container">
+            <h1>Featured Items</h1>
+        </div>
+        <div class="featured-items"></div>
+    </section>
+
+    <section class="search-result-container body-container">
+        <div class="search-result-head body-head-container">
+            <i class="fa-solid fa-backward back-button"></i>
+        </div>
+        <div class="search-result"></div>
+    </section>
+
+    <!-- Javascript -->
     <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
 </body>
 </html>

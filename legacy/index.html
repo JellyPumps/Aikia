@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Aikia Catalogue</title>
+</head>
+<body>
+    <h1>Aikia Catalogue</h1>
+    <div id="overlay"></div>
+    <div class="container">
+        <div class="catalogue"></div>
+        <form id="order-form" class="order-form" action="mailto:someverybouncyjelly@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" onKeyup="checkform()" placeholder="required::Minecraft username" required>
+            <label for="discord-username">Discord username:</label>
+            <input type="text" id="discord-username" name="discord-username" onKeyup="checkform()" placeholder="required::Discord username" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" onKeyup="checkform()" placeholder="required::Address" required>
+            <label for="items">Items:</label>
+            <input type="text" id="itemsf" name="items" readonly class="no-label" onKeyup="checkform()" placeholder="required::Self populates on item selection" required>
+            <label for="have-it-built">Have it built:</label>
+            <select id="select-button" name="have-it-built" onKeyup="checkform()" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <button id="order-button" type="submit" value="Submit" disabled="disabled">Order</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <p id="warning">All prices are in Japanese Yen and subject to change without notice. </p>
+        <p id="warning">Please note that all orders are final and cannot be cancelled or refunded. </p>
+        <p>Note: The cards are bit picky, to select them please tap on the area right above the item name. </p>
+    </footer>    
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+</body>
+</html>
