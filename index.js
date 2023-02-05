@@ -11,6 +11,7 @@ fetch('items.json')
       "Bedroom",
       "Living",
       "Dining",
+      "Kitchen",
       "Vanity",
       "Patio"
     ];
@@ -116,58 +117,110 @@ fetch('items.json')
     const sections = document.querySelectorAll('section');
 
     const createBodyContainer = function(headerText) {
+        // Delete other generated sections
+        document.querySelectorAll('.gen-sec').forEach(section=> {
+            section.parentNode.removeChild(section);
+        });
         // Create the section element
         const bodyContainer = document.createElement('section');
         bodyContainer.classList.add('gen-sec','body-container');
-
+    
         // Create the div for the header
         const bodyHeadContainer = document.createElement('div');
         bodyHeadContainer.classList.add('body-head-container');
-
+    
         // Create the h1 element and set its value
         const bodyHead = document.createElement('h1');
         bodyHead.innerText = headerText;
-
+    
         const bodyHeadContainerT = document.createElement('div');
         bodyHeadContainerT.classList.add('body-head-container');
-
+    
         const backButton = document.createElement('i');
         backButton.classList.add('fa-solid', 'fa-backward', 'back-button');
         bodyHeadContainerT.appendChild(backButton);
-
+    
         // Append the h1 to the div for the header
         bodyHeadContainer.appendChild(bodyHead);
-
+    
         // Create the div for the main content
         const bodyMain = document.createElement('div');
         bodyMain.classList.add('body-main');
-
+    
         // Append the header and main content divs to the section
         bodyContainer.appendChild(bodyHeadContainer);
         bodyContainer.appendChild(bodyHeadContainerT);
         bodyContainer.appendChild(bodyMain);
-
+    
         // Append the section to the document
         document.body.appendChild(bodyContainer);
-
+    
         sections.forEach(section => {
             if (section !== bodyContainer) {
                 section.style.display = 'none';
             }
         });
+    
+        // Add event listener for back button
+        backButton.addEventListener("click", function() {
+            searchResultContainer.style.display = "none";
+            featuredItemsContainer.style.display = "flex";
+            document.querySelectorAll('.gen-sec').forEach(section => {
+                section.parentNode.removeChild(section);
+            });
+        });
     };
+
+    // Create cards for generated sections
+    function createCatergoryCards(headerText) {
+        const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main')
+
+        const display_t = categories.map(category => {
+          if (category !== headerText) {
+            return '';
+          }
+      
+          const categoryItem = items.find(item => item.category === category);
+      
+          if (!categoryItem) {
+            return `
+                <div class="card seccard">
+                    <h2>Sorry!</h2>
+                    <p>This category has no furniture! :< </p>
+                </div>
+                `;
+          }
+      
+          return `
+            <div class="card seccard">
+                <h2>${categoryItem.name}</h2>
+                <img src="${categoryItem.image}" alt="${categoryItem.name}" />
+                <p>${categoryItem.price} ¥</p>
+                <p>${categoryItem.description}</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            `;
+        });
+      
+        bodyMain.innerHTML = display_t.join('');
+    }
+
+    // Generate
 
     for (let card of cards) {
         card.addEventListener('click', function() {
             createBodyContainer(this.querySelector('h2').innerText);
+            createCatergoryCards(this.querySelector('h2').innerText)
         });
     }
-
+    
     for (let link of navLinks) {
         link.addEventListener('click', function() {
             createBodyContainer(this.innerText);
+            createCatergoryCards(this.innerText)
         });
     }
+
 })
 .catch(error => {
     console.error('Error reading JSON file:', error);
