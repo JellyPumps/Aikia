@@ -19,8 +19,8 @@
             "category": "Living"
         },
         {
-            "name": "iömpu",
-            "price": "150",
+            "name": "Iömpu",
+            "price": 150,
             "image": "images/6_seater_ground_table.png",
             "description": "A table to enjoy your finest sake.",
             "status": "in stock",
@@ -28,13 +28,58 @@
             "category": "Dining"
         },
         {
-            "name": "pimcö",
-            "price": "750",
+            "name": "Pimcö",
+            "price": 750,
             "image": "images/hearth_table_door_set-demo.png",
             "description": "A demo set to showcase the luxury of traditional furniture.",
             "status": "in stock",
             "instruction":"instructions/hearth_table_door_set-demo.pdf",
-            "category": "Set"
+            "category": "Sets"
+        },
+        {
+            "name": "Gofce",
+            "price": 80,
+            "image": "images/cabinet_set.png",
+            "description": "A compact cabinet set to help you sort all those knives.",
+            "status": "in stock",
+            "instruction":"instructions/cabinet_set.pdf",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Vakufyi",
+            "price": 120,
+            "image": "images/meat_storage.png",
+            "description": "A meat rack with special powers to make meat not go bad.",
+            "status": "in stock",
+            "instruction":"instructions/meat_storage.pdf",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ebvuldej",
+            "price": 200,
+            "image": "images/bar_and_bar_stool.png",
+            "description": "Want a bar to show off latest concoction?",
+            "status": "in stock",
+            "instruction":"instructions/bar_and_bar_stool.pdf",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Gedse",
+            "price": 160,
+            "image": "images/stove_and_cabinets.png",
+            "description": "Perfect spot to cook in peace.",
+            "status": "in stock",
+            "instruction":"instructions/stove_and_cabinets.pdf",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ayehyi",
+            "price": 1000,
+            "image": "images/kitchen_set_1.png",
+            "description": "A comfortable kitchen to cook the best dishes of love.",
+            "status": "in stock",
+            "instruction":"instructions/kitchen_set_1.pdf",
+            "category": "Sets"
         }
     ]
 }
