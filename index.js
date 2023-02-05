@@ -13,7 +13,8 @@ fetch('items.json')
       "Dining",
       "Kitchen",
       "Vanity",
-      "Patio"
+      "Patio",
+      "Sets"
     ];
 
     // Featured items on home page
@@ -172,38 +173,71 @@ fetch('items.json')
     };
 
     // Create cards for generated sections
-    function createCatergoryCards(headerText) {
-        const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main')
+    // function createCatergoryCards(headerText) {
+    //     const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main')
 
+    //     const display_t = categories.map(category => {
+    //       if (category !== headerText) {
+    //         return '';
+    //       }
+      
+    //       const categoryItem = items.find(item => item.category === category);
+      
+    //       if (!categoryItem) {
+    //         return `
+    //             <div class="card seccard">
+    //                 <h2>Sorry!</h2>
+    //                 <p>This category has no furniture! :< </p>
+    //             </div>
+    //             `;
+    //       }
+      
+    //       return `
+    //         <div class="card seccard">
+    //             <h2>${categoryItem.name}</h2>
+    //             <img src="${categoryItem.image}" alt="${categoryItem.name}" />
+    //             <p>${categoryItem.price} ¥</p>
+    //             <p>${categoryItem.description}</p>
+    //             <button class="add-to-cart">Add to Cart</button>
+    //         </div>
+    //         `;
+    //     });
+      
+    //     bodyMain.innerHTML = display_t.join('');
+    // }
+    function createCatergoryCards(headerText) {
+        const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main');
         const display_t = categories.map(category => {
           if (category !== headerText) {
             return '';
           }
-      
-          const categoryItem = items.find(item => item.category === category);
-      
-          if (!categoryItem) {
+          
+          const categoryItems = items.filter(item => item.category === category);
+          
+          if (!categoryItems.length) {
             return `
-                <div class="card seccard">
-                    <h2>Sorry!</h2>
-                    <p>This category has no furniture! :< </p>
-                </div>
-                `;
+              <div class="card seccard">
+                <h2>Sorry!</h2>
+                <p>This category has no furniture! :< </p>
+              </div>
+            `;
           }
-      
-          return `
-            <div class="card seccard">
+          
+          return categoryItems.map(categoryItem => {
+            return `
+              <div class="card seccard">
                 <h2>${categoryItem.name}</h2>
                 <img src="${categoryItem.image}" alt="${categoryItem.name}" />
                 <p>${categoryItem.price} ¥</p>
                 <p>${categoryItem.description}</p>
                 <button class="add-to-cart">Add to Cart</button>
-            </div>
+              </div>
             `;
+          }).join('');
         });
-      
+        
         bodyMain.innerHTML = display_t.join('');
-    }
+      }
 
     // Generate
 
