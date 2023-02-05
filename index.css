@@ -21,6 +21,15 @@ body {
     width: 80%;
 }
 
+.body-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+    margin: 0 10%;
+    width: 80%;
+}
+
 .header {
     background-color: #131921;
     height: 60px;
