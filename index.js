@@ -52,6 +52,13 @@ fetch('items.json')
         const searchTerm = searchInput.value;
         // Hide the featured items container
         featuredItemsContainer.style.display = "none";
+
+        //Show / Hide
+        searchResultContainer.style.display = "flex";
+
+        if (!searchTerm) {
+            searchResultContainer.style.display = "none";
+        }
     
         // Clear any previous search results
         searchResult.innerHTML = "";
@@ -59,9 +66,6 @@ fetch('items.json')
         const filteredItems = items.filter(item =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
-    
-        // Show the search result section
-        searchResult.style.display = "flex";
     
         // Add the filtered items as cards to the search result section
         filteredItems.forEach(item => {
@@ -101,7 +105,9 @@ fetch('items.json')
     backBtn.addEventListener("click", function() {
         searchResultContainer.style.display = "none";
         featuredItemsContainer.style.display = "flex";
-        window.location.reload(true);
+        document.querySelectorAll('.gen-sec').forEach(section=> {
+            section.parentNode.removeChild(section);
+        });
     });
 
     // Section pages
