@@ -138,7 +138,7 @@ fetch('items.json')
         bodyHeadContainerT.classList.add('body-head-container');
     
         const backButton = document.createElement('i');
-        backButton.classList.add('fa-solid', 'fa-backward', 'back-button');
+        backButton.classList.add('fa-solid', 'fa-house', 'back-button');
         bodyHeadContainerT.appendChild(backButton);
     
         // Append the h1 to the div for the header
@@ -172,39 +172,6 @@ fetch('items.json')
         });
     };
 
-    // Create cards for generated sections
-    // function createCatergoryCards(headerText) {
-    //     const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main')
-
-    //     const display_t = categories.map(category => {
-    //       if (category !== headerText) {
-    //         return '';
-    //       }
-      
-    //       const categoryItem = items.find(item => item.category === category);
-      
-    //       if (!categoryItem) {
-    //         return `
-    //             <div class="card seccard">
-    //                 <h2>Sorry!</h2>
-    //                 <p>This category has no furniture! :< </p>
-    //             </div>
-    //             `;
-    //       }
-      
-    //       return `
-    //         <div class="card seccard">
-    //             <h2>${categoryItem.name}</h2>
-    //             <img src="${categoryItem.image}" alt="${categoryItem.name}" />
-    //             <p>${categoryItem.price} ¥</p>
-    //             <p>${categoryItem.description}</p>
-    //             <button class="add-to-cart">Add to Cart</button>
-    //         </div>
-    //         `;
-    //     });
-      
-    //     bodyMain.innerHTML = display_t.join('');
-    // }
     function createCatergoryCards(headerText) {
         const bodyMain = document.querySelector('.gen-sec').querySelector('.body-main');
         const display_t = categories.map(category => {
@@ -225,21 +192,21 @@ fetch('items.json')
           
           return categoryItems.map(categoryItem => {
             return `
-              <div class="card seccard">
+              <div class="card seccard itemcard">
                 <h2>${categoryItem.name}</h2>
                 <img src="${categoryItem.image}" alt="${categoryItem.name}" />
                 <p>${categoryItem.price} ¥</p>
-                <p>${categoryItem.description}</p>
                 <button class="add-to-cart">Add to Cart</button>
+                <div id="tooltip">${categoryItem.description}</div>
               </div>
             `;
           }).join('');
         });
         
         bodyMain.innerHTML = display_t.join('');
-      }
+    }
 
-    // Generate
+    // Final Section Generation
 
     for (let card of cards) {
         card.addEventListener('click', function() {
