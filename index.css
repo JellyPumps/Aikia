@@ -224,6 +224,10 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
 }
 
+.itemcard:hover {
+    color: #FDAC65;
+}
+
 /* Search Results */
 .search-result-head i {
     padding: 10px;
